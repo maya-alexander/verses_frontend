@@ -35,18 +35,18 @@ module.exports = (env) => {
             },
           },
         },
-        
+
         {
-      test: /\.ttf$/,
-      use: [
-        {
-          loader: 'ttf-loader',
-          options: {
-            name: './font/[hash].[ext]',
-          },
+          test: /\.ttf$/,
+          use: [
+            {
+              loader: "ttf-loader",
+              options: {
+                name: "./font/[hash].[ext]",
+              },
+            },
+          ],
         },
-      ]
-    }
         {
           test: /\.s[ac]ss$/i,
           use: ["style-loader", "css-loader", "sass-loader"],
@@ -87,7 +87,6 @@ module.exports = (env) => {
       port: process.env.PORT,
     },
   };
-  
 
   return production ? main : { ...main, ...dev };
 };
