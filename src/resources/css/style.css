@@ -48,7 +48,7 @@ button {
 
 @font-face {
   font-family: "Futura";
-  src: local("Futura"), local("futura"),
+  src: local("Futura"), local("Futura"),
     url("../fonts/Futura Bold font.ttf") format("ttf");
 }
 /* ----------------------------------------------- */
