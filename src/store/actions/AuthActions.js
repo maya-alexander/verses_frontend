@@ -43,9 +43,9 @@ export const auth = (email, password, name, isSignup) => async (dispatch) => {
   await api
     .post(path, authData)
     .then((response) => {
-      dispatch(authSuccess(response.data.user));
+      dispatch(authSuccess(response.data));
     })
-    .catch((response) => dispatch(authFail(response.data.user)));
+    .catch((response) => dispatch(authFail(response)));
 };
 
 export const fetchUser = () => async (dispatch, getState) => {
@@ -55,7 +55,7 @@ export const fetchUser = () => async (dispatch, getState) => {
   await api
     .get(`/users/${user}`)
     .then((response) => {
-      dispatch(authSuccess(response.data.user));
+      dispatch(authSuccess(response.data));
     })
     .catch((err) => {
       dispatch(authFail(err));
