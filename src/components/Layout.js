@@ -24,6 +24,7 @@ const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.auth.token !== null,
     userId: state.auth.userId,
+    token: state.auth.token,
     current_user: state.auth.current_user,
     brands: state.brand.select,
     products: state.product.select,
