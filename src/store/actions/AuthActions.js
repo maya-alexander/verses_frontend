@@ -8,15 +8,14 @@ export const authStart = () => {
 };
 
 export const authSuccess = (user) => {
-  console.log(user)
+  console.log(user);
   return {
     type: actionTypes.AUTH_SUCCESS,
-    user: user
+    user: user,
   };
 };
 
 export const authFail = (error) => {
-
   return {
     type: actionTypes.AUTH_FAIL,
     error: error,
@@ -31,37 +30,36 @@ export const logout = () => {
   };
 };
 
-export const auth = (email, password, name, isSignup) => 
-   async (dispatch) => {
-    dispatch(authStart());
-    const authData = {
-      email: email,
-      password: password,
-      name: name,
-      returnSecureToken: true,
-    };
-    let path = !isSignup ? `/session` : `/users/`;
-
-    await api
-      .post(path, authData)
-      .then((response) => {
-          dispatch(authSuccess(response.data.user))
-        }
-      ).catch(dispatch(authFail(response.data.user)))
+export const auth = (email, password, name, isSignup) => async (dispatch) => {
+  dispatch(authStart());
+  const authData = {
+    email: email,
+    password: password,
+    name: name,
+    returnSecureToken: true,
   };
+  let path = !isSignup ? `/session` : `/users/`;
 
+  await api
+    .post(path, authData)
+    .then((response) => {
+      dispatch(authSuccess(response.data.user));
+    })
+    .catch((response) => dispatch(authFail(response.data.user)));
+};
 
 export const fetchUser = () => async (dispatch, getState) => {
-  let user = getState().auth.userId
-  dispatch(authStart())
+  let user = getState().auth.userId;
+  dispatch(authStart());
   JSON.stringify(user);
   await api
     .get(`/users/${user}`)
     .then((response) => {
-      dispatch(authSuccess(response.data.user))})
+      dispatch(authSuccess(response.data.user));
+    })
     .catch((err) => {
       dispatch(authFail(err));
-    })
+    });
 };
 
 // export const fetchUserFail = (error) => {
