@@ -47,7 +47,7 @@ export const auth = (email, password, name, isSignup) =>
       .then((response) => {
           dispatch(authSuccess(response.data.user))
         }
-      )
+      ).catch(dispatch(authFail(response.data.user)))
   };
 
 
