@@ -121,7 +121,7 @@ const fetchCartFailed = (state, action) => {
 };
 
 const authSuccessCart = (state, action) => {
-  console.log(action)
+  console.log('cartsreducter',action, action.id)
   return updateObject(state, {
     cart_id: action.id,
     cart_total: action.total_cost_string,
