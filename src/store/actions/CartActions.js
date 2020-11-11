@@ -125,6 +125,13 @@ export const setCart = (cart) => {
   };
 };
 
+export const authSuccessCart = (cart) => {
+  return {
+    type: actionTypes.AUTH_SUCCESS,
+    cart: cart
+  }
+}
+
 export const removeProductFromCart = (cart_item_id) => async (
   dispatch,
   getState

@@ -1,5 +1,6 @@
 import api from "../apis/api";
 import * as actionTypes from "./actionTypes";
+import * as actions from "../actions/index";
 
 export const authStart = () => {
   return {
@@ -9,10 +10,10 @@ export const authStart = () => {
 
 export const authSuccess = (cart, user) => {
   console.log(user);
+  actions.authSuccessCart(cart)
   return {
     type: actionTypes.AUTH_SUCCESS,
-    user: user,
-    cart: cart
+    user: user
   };
 };
 

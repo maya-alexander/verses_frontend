@@ -11,6 +11,7 @@ export {
   addCartToFavorite,
   startFetchCart,
   removeProductFromCart,
+  authSuccessCart,
   setCart,
   fetchCartFailed,
   initCart,
