@@ -24,6 +24,8 @@ const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.auth.token !== null,
     userId: state.auth.userId,
+    cart: state.cart.cart,
+    cart_items: state.cart.cart_items,
     token: state.auth.token,
     current_user: state.auth.current_user,
     brands: state.brand.select,
@@ -37,7 +39,8 @@ const mapDispatchToProps = (dispatch) => {
     initBrands: () => dispatch(actions.initBrands()),
     initFetchPlans: () => dispatch(actions.initFetchPlans()),
     initFetchOrders: () => dispatch(actions.initFetchOrders()),
-    fetchUser: () => dispatch(actions.fetchUser())
+    fetchUser: () => dispatch(actions.fetchUser()),
+    initCart: () => dispatch(actions.initCart())
   };
 };
 
