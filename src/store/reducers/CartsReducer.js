@@ -13,6 +13,7 @@ const initialState = {
 };
 
 const setCart = (state, action) => {
+  console.log(cart)
   return updateObject(state, {
     cart_id: action.payload.cart.id,
     member_id: action.payload.cart.member_id,
