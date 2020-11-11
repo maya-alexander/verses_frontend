@@ -8,12 +8,7 @@ class Layout extends React.Component {
     this.props.initProducts();
     this.props.initFetchPlans();
 
-
-   if(this.props.token) {
-this.props.fetchUser() 
-// this.props.initFetchOrders()
-// this.props.initCart()
-   } 
+   if(this.props.token)  this.props.fetchUser()  
   }
 
   render() {
