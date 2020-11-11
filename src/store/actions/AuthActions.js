@@ -12,7 +12,7 @@ export const authSuccess = (response) => {
   console.log(response)
   return {
     type: actionTypes.AUTH_SUCCESS,
-    user: response.user
+    response: response
   };
 };
 

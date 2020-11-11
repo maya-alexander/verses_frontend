@@ -13,7 +13,6 @@ const initialState = {
 };
 
 const setCart = (state, action) => {
-  console.log(cart)
   return updateObject(state, {
     cart_id: action.payload.cart.id,
     member_id: action.payload.cart.member_id,
@@ -121,10 +120,21 @@ const fetchCartFailed = (state, action) => {
   });
 };
 
+const authSuccessCart = (state, action) => {
+  console.log('cartsaction', action)
+  return updateObject(state, {
+    cart_id: action.id,
+    cart_total: action.total_cost_string,
+    member_id: action.member_id,
+  })
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.AUTH_LOGOUT:
       return cartLogout(state, action);
+    case actionTypes.AUTH_SUCCESS:
+      return authSuccessCart(state, action);
     case actionTypes.SET_CART:
       return setCart(state, action);
     case actionTypes.ADD_PRODUCT_TO_CART:

@@ -88,7 +88,7 @@ export const initCart = () => async (dispatch, getState) => {
       }
     })
     .then((response) => {
-      console.log(response.data)
+      console.log('initCart',response.data)
       dispatch(setCart(response.data));
     })
     .catch((error) => {
