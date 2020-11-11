@@ -7,7 +7,7 @@ module.exports = (env) => {
 
   const main = {
     mode: "production",
-    entry: "./public/index.js",
+    entry: "./src/index.js",
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, "build"),
