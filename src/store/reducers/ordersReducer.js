@@ -61,6 +61,14 @@ const deleteOrder = (state, action) => {
   });
 };
 
+const logoutOrders = () => {
+  return updateObject(state, {
+    orders: [],
+    error: null,
+    loading: false
+  });
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.START_ORDER:
@@ -73,6 +81,8 @@ const reducer = (state = initialState, action) => {
       return orderSuccess(state, action);
     case actionTypes.FETCH_ORDER_SUCCESS:
       return fetchOrderSuccess(state, action);
+    case actionTypes.AUTH_LOGOUT:
+      return logoutOrders(state);
     default:
       return state;
   }

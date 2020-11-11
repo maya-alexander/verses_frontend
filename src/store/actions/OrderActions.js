@@ -67,6 +67,12 @@ export const orderSuccess = (order) => {
   };
 };
 
+export const logoutOrders = () => {
+  return {
+    type: actionTypes.AUTH_LOGOUT,
+  }
+}
+
 export const fetchOrderSuccess = (orders) => {
   console.log(orders)
   return {
