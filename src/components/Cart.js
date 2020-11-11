@@ -5,7 +5,6 @@ import CartItem from "./CartItem";
 
 class Cart extends React.Component {
   componentDidMount() {
-    this.props.initCart();
     return this.props.token ? this.loadUser() : null
   }
 
