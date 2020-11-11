@@ -16,12 +16,12 @@ const authStart = (state) => {
 
 const authSuccess = (state, action) => {
   console.log(action)
-  localStorage.setItem("token", action.user.session_token);
-  localStorage.setItem("userId", action.user.id);
+  localStorage.setItem("token", action.response.user.session_token);
+  localStorage.setItem("userId", action.response.user.id);
   return updateObject(state, {
-    token: action.user.session_token,
-    userId: action.user.id,
-    current_user: {...action.user},
+    token: action.response.user.session_token,
+    userId: action.response.user.id,
+    current_user: {...action.response.user},
     loading: false,
     error: null
   });
