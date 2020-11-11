@@ -82,7 +82,11 @@ export const initCart = () => async (dispatch, getState) => {
   dispatch(startFetchCart());
   let user = getState().auth.userId;
   await api
-    .get(`/users/${user}/cart`)
+    .get(`/users/${user}/cart`, {
+      params: {
+        user_id: user.value
+      }
+    })
     .then((response) => {
       console.log(response.data)
       dispatch(setCart(response.data));
