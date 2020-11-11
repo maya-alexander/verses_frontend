@@ -84,6 +84,7 @@ export const initCart = () => async (dispatch, getState) => {
   await api
     .get(`/users/${user}/cart`)
     .then((response) => {
+      console.log(response.data)
       dispatch(setCart(response.data));
     })
     .catch((error) => {
