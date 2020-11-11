@@ -45,7 +45,6 @@ const authLogout = (state) => {
     userId: null,
     current_user: null,
     error: null,
-    cart: [],
   });
 };
 

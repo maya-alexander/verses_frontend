@@ -7,11 +7,12 @@ export const authStart = () => {
   };
 };
 
-export const authSuccess = (user) => {
+export const authSuccess = (cart, user) => {
   console.log(user);
   return {
     type: actionTypes.AUTH_SUCCESS,
     user: user,
+    cart: cart
   };
 };
 
@@ -43,7 +44,7 @@ export const auth = (email, password, name, isSignup) => async (dispatch) => {
   await api
     .post(path, authData)
     .then((response) => {
-      dispatch(authSuccess(response.data));
+      dispatch(authSuccess(response.data.cart, response.data.user));
     })
     .catch((response) => dispatch(authFail(response)));
 };
