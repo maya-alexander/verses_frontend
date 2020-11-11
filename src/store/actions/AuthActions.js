@@ -9,8 +9,6 @@ export const authStart = () => {
 };
 
 export const authSuccess = (response) => {
-  console.log(response.cart, response.user);
-  actions.authSuccessCart(response)
   return {
     type: actionTypes.AUTH_SUCCESS,
     user: response.user
