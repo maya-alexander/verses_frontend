@@ -8,12 +8,12 @@ export const authStart = () => {
   };
 };
 
-export const authSuccess = (cart, user) => {
-  console.log(user);
-  actions.authSuccessCart(cart)
+export const authSuccess = (response) => {
+  console.log(response.cart, response.user);
+  actions.authSuccessCart(response.cart)
   return {
     type: actionTypes.AUTH_SUCCESS,
-    user: user
+    user: response.user
   };
 };
 
@@ -45,7 +45,7 @@ export const auth = (email, password, name, isSignup) => async (dispatch) => {
   await api
     .post(path, authData)
     .then((response) => {
-      dispatch(authSuccess(response.data.cart, response.data.user));
+      dispatch(authSuccess(response.data));
     })
     .catch((response) => dispatch(authFail(response)));
 };
