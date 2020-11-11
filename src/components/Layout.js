@@ -11,8 +11,8 @@ class Layout extends React.Component {
 
    if(this.props.token) {
 this.props.fetchUser() 
-this.props.initFetchOrders()
-this.props.initCart()
+// this.props.initFetchOrders()
+// this.props.initCart()
    } 
   }
 
