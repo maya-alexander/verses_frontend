@@ -61,7 +61,7 @@ module.exports = (env) => {
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         title: "My React Project",
-        template: "./src/index.html",
+        template: "./public/index.html",
       }),
     ],
     output: {
