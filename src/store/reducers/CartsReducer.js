@@ -120,12 +120,11 @@ const fetchCartFailed = (state, action) => {
   });
 };
 
-const authSuccessCart = (cart, user) => {
+const authSuccessCart = (state, action) => {
   return updateObject(state, {
-    cart_id: cart.id,
-    cart_total: cart.total_cost_string,
-    member_id: cart.member_id,
-
+    cart_id: action.payload.cart.id,
+    cart_total: action.payload.cart.total_cost_string,
+    member_id: action.payload.cart.member_id,
   })
 }
 
