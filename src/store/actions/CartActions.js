@@ -73,7 +73,7 @@ export const addCartToFavorite = (product_id, size_id, size, cart_item_id) => as
   await api.post(`/users/${user}/favorites`, {
     product_id: JSON.stringify(product_id),
     size_id: JSON.stringify(size_id),
-    size: size,
+    size: JSON.stringify(size),
     cart_item_id: JSON.stringify(cart_item_id),
   }).then(dispatch(removeProductFromCart(cart_item_id)))
 };
