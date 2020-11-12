@@ -9,8 +9,8 @@ export const addProductToCart = (product_id, size_id, size) => async (
   await api
     .post(`/users/${user}/cart/cart_items`, {
       product_id: JSON.stringify(product_id),
-      size_id: size_id,
-      size: size
+      size_id: JSON.stringify(size_id),
+      size: JSON.stringify(size)
     })
     .then((resp) => {
       dispatch({
