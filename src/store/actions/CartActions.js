@@ -6,7 +6,7 @@ export const addProductToCart = (product_id, size_id, size) => async (
   getState
 ) => {
   let user = getState().auth.userId;
-  console.log(size)
+  console.log(JSON.stringify(size))
   await api
     .post(`/users/${user}/cart/cart_items`, {
       product_id: JSON.stringify(product_id),
