@@ -126,6 +126,7 @@ const authSuccessCart = (state, action) => {
     cart_id: action.response.cart.id,
     cart_total: action.response.cart.total_cost_string,
     member_id: action.response.cart.member_id,
+    cart_items: [...action.response.cart_items]
   })
 }
 

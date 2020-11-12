@@ -12,9 +12,7 @@ export const authSuccess = (response) => {
   console.log(response)
   return {
     type: actionTypes.AUTH_SUCCESS,
-    response: response,
-    cart: response.cart,
-    cart_items: response.cart_items
+    response: response
   };
 };
 
