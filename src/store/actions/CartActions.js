@@ -131,11 +131,12 @@ export const setCart = (cart) => {
   };
 };
 
-export const authSuccessCart = (cart) => {
-  console.log(cart)
+export const authSuccessCart = (response) => {
+  console.log('authsuccesscart', response, response.cart, response.cart_items)
   return {
     type: actionTypes.AUTH_SUCCESS,
-    cart: cart
+    cart: response.cart,
+    cart_items: response.cart_items,
   }
 }
 
