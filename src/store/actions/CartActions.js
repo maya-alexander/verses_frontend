@@ -11,7 +11,7 @@ export const addProductToCart = (product_id, size_id, size) => async (
     .post(`/users/${user}/cart/cart_items`, {
       product_id: JSON.stringify(product_id),
       size_id: JSON.stringify(size_id),
-      size: JSON.stringify(size)
+      size: size
     })
     .then((resp) => {
       dispatch({
